@@ -17,7 +17,7 @@ namespace BigBoss.Models
             return userIdentity;
         }
     }
-
+    
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -29,5 +29,17 @@ namespace BigBoss.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+        }
+
+        public DbSet<CategoryModel> Category { get; set; }
+        public DbSet<ProjectModel> Project { get; set; }
+
     }
+
+    
 }
